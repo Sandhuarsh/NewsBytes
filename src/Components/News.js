@@ -31,7 +31,7 @@ const News = (props) => {
 
   }
   useEffect(() => {
-    document.title = `${capitalizeFirstLetter(props.category)} -   NewsMonkey`;
+    document.title = `${capitalizeFirstLetter(props.category)} -   NewsBytes`;
     updateNews();
   }, [])
 
@@ -55,7 +55,7 @@ const News = (props) => {
   }
   return (
     <>
-      <h1 className='text-center' style={{ margin: "35px 0px", marginTop: '90px' }}>NewsMonkey - Top {capitalizeFirstLetter(props.category)}  Headlines</h1>
+      <h1 className='text-center' style={{ margin: "35px 0px", marginTop: '90px' }}>NewsBytes - Top {capitalizeFirstLetter(props.category)}  Headlines</h1>
       {loading && <Spinner />}
       <InfiniteScroll
         dataLength={articles.length}
@@ -65,7 +65,6 @@ const News = (props) => {
       >
         <div className="container">
           <div className="row">
-            {/* !loading && */}
             {articles.map((element) => {
               return <div className="col-md-4" key={element.url}>
                 <NewsItem title={element.title ? element.title : ""} description={element.description ? element.description : ""} imageurl={element.urlToImage} newsurl={element.url} author={element.author} date={element.publishedAt} source={element.source.name} />
